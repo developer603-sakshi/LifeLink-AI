@@ -1,0 +1,54 @@
+.navbar{
+background:white;
+padding:18px 0;
+box-shadow:0 2px 15px rgba(0,0,0,0.05);
+}
+
+.logo-text{
+color:#dc2626;
+font-size:28px;
+font-weight:700;
+}
+
+.nav-link{
+font-weight:600;
+margin:0 10px;
+position:relative;
+color:#111827 !important;
+}
+
+.nav-link:hover{
+color:#dc2626 !important;
+}
+
+.nav-link::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:3px;
+background:#dc2626;
+transition:0.4s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after{
+width:100%;
+}
+
+.login-btn{
+display:inline-block;
+background:#dc2626;
+color:white;
+padding:12px 25px;
+border-radius:12px;
+font-weight:600;
+transition:0.4s;
+}
+
+.login-btn:hover{
+transform:translateY(-4px);
+background:#b91c1c;
+color:white;
+}

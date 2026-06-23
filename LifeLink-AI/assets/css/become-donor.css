@@ -1,0 +1,26 @@
+.donor-section{
+padding:100px 0;
+background:#f8fafc;
+min-height:100vh;
+}
+
+.donor-card{
+border-radius:25px;
+}
+
+label{
+font-weight:600;
+margin-bottom:5px;
+}
+
+.form-control,
+.form-select{
+padding:12px;
+border-radius:12px;
+}
+
+.btn-danger{
+padding:14px;
+border-radius:12px;
+font-weight:600;
+}

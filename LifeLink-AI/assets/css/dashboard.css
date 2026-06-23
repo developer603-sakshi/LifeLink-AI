@@ -1,0 +1,23 @@
+.dashboard-section{
+padding:100px 0;
+background:#f8fafc;
+min-height:100vh;
+}
+
+.dashboard-card{
+border-radius:25px;
+transition:.4s;
+}
+
+.dashboard-card:hover{
+transform:translateY(-8px);
+}
+
+.dashboard-card .card-body{
+padding:40px;
+}
+
+.dashboard-card h2{
+font-size:45px;
+font-weight:700;
+}

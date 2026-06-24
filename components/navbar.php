@@ -1,3 +1,8 @@
+<?php
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+?>
 <nav class="navbar navbar-expand-lg sticky-top">
 
 <div class="container">
@@ -74,12 +79,47 @@ Dashboard
 
 </ul>
 
-<a href="#"
-class="login-btn text-decoration-none">
+<?php if(isset($_SESSION['user_id'])) { ?>
 
-Login / Sign Up
+<div class="d-flex align-items-center">
+
+<a href="dashboard.php"
+class="nav-link fw-bold">
+
+👤 <?php echo $_SESSION['name']; ?>
 
 </a>
+
+<a href="logout.php"
+class="btn btn-danger ms-3">
+
+Logout
+
+</a>
+
+</div>
+
+<?php } else { ?>
+
+<div class="d-flex">
+
+<a href="login.php"
+class="btn btn-outline-danger me-2">
+
+Login
+
+</a>
+
+<a href="register.php"
+class="btn btn-danger">
+
+Register
+
+</a>
+
+</div>
+
+<?php } ?>
 
 </div>
 

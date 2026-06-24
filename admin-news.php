@@ -1,4 +1,6 @@
-<?php include 'php/db.php'; ?>
+<?php
+include 'php/db.php';
+?>
 
 <form action="php/save-news.php" method="POST">
 

@@ -1,33 +1,28 @@
+<?php $page = "dashboard"; ?>
 <?php
-
 session_start();
 
-if(!isset($_SESSION['user_id']))
-{
+if(!isset($_SESSION['user_id'])){
 header("Location: login.php");
 exit();
 }
-
-?>
-<?php
-include 'php/db.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dashboard | LifeLink AI</title>
+<title>Dashboard</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="assets/css/dashboard.css?v=2">
+
 <link rel="stylesheet" href="assets/css/navbar.css">
 <link rel="stylesheet" href="assets/css/footer.css">
-<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 
 </head>
 
@@ -35,178 +30,151 @@ include 'php/db.php';
 
 <?php include 'components/navbar.php'; ?>
 
-<section class="dashboard-section">
+<div class="container py-5">
 
-<div class="container">
+<div class="dashboard-hero">
 
-<h1 class="text-center fw-bold text-danger mb-5">
-📊 LifeLink AI Dashboard
+<h1>
+Welcome Back,
+<?php echo $_SESSION['name']; ?> 👋
 </h1>
+
+<p class="lead">
+AI Powered Blood Donation Platform
+</p>
+
+</div>
+
+<div class="row g-4 mb-5">
+
+<div class="col-md-3">
+
+<div class="card stat-card shadow">
+
+<div class="card-body text-center">
+
+<div class="stat-icon">
+🩸
+</div>
+
+<h2>1250</h2>
+
+<p>Total Donors</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat-card shadow">
+
+<div class="card-body text-center">
+
+<div class="stat-icon">
+🚨
+</div>
+
+<h2>42</h2>
+
+<p>Active Requests</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat-card shadow">
+
+<div class="card-body text-center">
+
+<div class="stat-icon">
+📢
+</div>
+
+<h2>8</h2>
+
+<p>Upcoming Camps</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card stat-card shadow">
+
+<div class="card-body text-center">
+
+<div class="stat-icon">
+❤️
+</div>
+
+<h2>560</h2>
+
+<p>Lives Saved</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<h3 class="mb-4">
+Latest Announcements
+</h3>
 
 <div class="row g-4">
 
-<?php
+<div class="col-md-6">
 
-$totalDonors =
-mysqli_num_rows(
-mysqli_query(
-$conn,
-"SELECT * FROM donors"
-)
-);
-
-$availableDonors =
-mysqli_num_rows(
-mysqli_query(
-$conn,
-"SELECT * FROM donors WHERE available='Yes'"
-)
-);
-
-$totalEmergency =
-mysqli_num_rows(
-mysqli_query(
-$conn,
-"SELECT * FROM emergency_requests"
-)
-);
-
-?>
-
-<div class="col-md-4">
-
-<div class="card dashboard-card shadow border-0">
-
-<div class="card-body text-center">
-
-<h2 class="text-danger">
-<?php echo $totalDonors; ?>
-</h2>
-
-<h5>Total Donors</h5>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card dashboard-card shadow border-0">
-
-<div class="card-body text-center">
-
-<h2 class="text-success">
-<?php echo $availableDonors; ?>
-</h2>
-
-<h5>Available Donors</h5>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-md-4">
-
-<div class="card dashboard-card shadow border-0">
-
-<div class="card-body text-center">
-
-<h2 class="text-primary">
-<?php echo $totalEmergency; ?>
-</h2>
-
-<h5>Emergency Requests</h5>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="table-responsive mt-5">
-
-<table class="table table-bordered">
-
-<tr>
-<th>Name</th>
-<th>Blood Group</th>
-<th>City</th>
-<th>Status</th>
-</tr>
-
-<?php
-
-$result =
-mysqli_query(
-$conn,
-"SELECT * FROM donors ORDER BY id DESC LIMIT 5"
-);
-
-while($row=mysqli_fetch_assoc($result))
-{
-?>
-
-<tr>
-
-<td><?php echo $row['full_name']; ?></td>
-
-<td><?php echo $row['blood_group']; ?></td>
-
-<td><?php echo $row['city']; ?></td>
-
-<td><?php echo $row['available']; ?></td>
-
-</tr>
-
-<?php
-}
-?>
-
-</table>
-
-</div>
-<h2 class="mt-5 mb-4">
-📢 Latest Announcements
-</h2>
-
-<div class="row">
-
-<?php
-
-$result=mysqli_query(
-$conn,
-"SELECT * FROM announcements ORDER BY id DESC LIMIT 6"
-);
-
-while($row=mysqli_fetch_assoc($result))
-{
-?>
-
-<div class="col-md-4 mb-4">
-
-<div class="card shadow border-0 h-100">
+<div class="card news-card shadow">
 
 <div class="card-body">
 
-<h5 class="text-danger">
-<?php echo $row['title']; ?>
+<h5>
+Blood Donation Camp
 </h5>
 
 <p>
-<?php echo $row['description']; ?>
+📍 Pune
 </p>
 
 <p>
-📍 <?php echo $row['venue']; ?>
+📅 30 June 2026
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="card news-card shadow">
+
+<div class="card-body">
+
+<h5>
+Emergency Blood Drive
+</h5>
+
+<p>
+📍 Ahilyanagar
 </p>
 
 <p>
-📅 <?php echo $row['event_date']; ?>
+📅 5 July 2026
 </p>
 
 </div>
@@ -215,16 +183,9 @@ while($row=mysqli_fetch_assoc($result))
 
 </div>
 
-<?php
-}
-?>
-
-</div>
 </div>
 
-</section>
-
-
+</div>
 <?php include 'components/footer.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

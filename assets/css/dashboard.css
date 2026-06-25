@@ -1,3 +1,44 @@
+.dashboard-hero{
+    background: linear-gradient(135deg,#dc2626,#991b1b);
+    color:white;
+    padding:50px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.dashboard-hero p{
+color:#f3f4f6;
+}
+.stat-card{
+    border:none;
+    border-radius:18px;
+    transition:.3s;
+    overflow:hidden;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-icon{
+    font-size:35px;
+}
+
+.news-card{
+    border:none;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+}
+
+.notification-badge{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+}
 .dashboard-section{
 padding:100px 0;
 background:#f8fafc;
@@ -21,3 +62,4 @@ padding:40px;
 font-size:45px;
 font-weight:700;
 }
+

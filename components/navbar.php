@@ -1,3 +1,4 @@
+
 <?php
 if(session_status() === PHP_SESSION_NONE){
     session_start();
@@ -36,42 +37,42 @@ id="navbarNav">
 <ul class="navbar-nav mx-auto">
 
 <li class="nav-item">
-<a class="nav-link active"
+<a class="nav-link <?php if($page=='home') echo 'active'; ?>"
 href="index.php">
 Home
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link"
+<a class="nav-link <?php if($page=='find') echo 'active'; ?>"
 href="find-blood.php">
 Find Blood
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link"
+<a class="nav-link <?php if($page=='donor') echo 'active'; ?>"
 href="become-donor.php">
 Become Donor
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link"
+<a class="nav-link <?php if($page=='ai') echo 'active'; ?>"
 href="ai-assistant.php">
 AI Assistant
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link"
+<a class="nav-link <?php if($page=='sos') echo 'active'; ?>"
 href="emergency-sos.php">
 SOS
 </a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link"
+<a class="nav-link <?php if($page=='dashboard') echo 'active'; ?>"
 href="dashboard.php">
 Dashboard
 </a>
@@ -83,19 +84,45 @@ Dashboard
 
 <div class="d-flex align-items-center">
 
-<a href="dashboard.php"
-class="nav-link fw-bold">
+<div class="position-relative me-3">
+
+<i class="bi bi-bell-fill fs-4 text-danger"></i>
+
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+3
+</span>
+
+</div>
+
+<div class="dropdown">
+
+<button
+class="btn btn-outline-danger dropdown-toggle"
+data-bs-toggle="dropdown">
 
 👤 <?php echo $_SESSION['name']; ?>
 
+</button>
+
+<ul class="dropdown-menu">
+
+<li>
+<a class="dropdown-item"
+href="dashboard.php">
+Dashboard
 </a>
+</li>
 
-<a href="logout.php"
-class="btn btn-danger ms-3">
-
+<li>
+<a class="dropdown-item"
+href="logout.php">
 Logout
-
 </a>
+</li>
+
+</ul>
+
+</div>
 
 </div>
 

@@ -1,3 +1,4 @@
+<?php $page = "find"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,8 +171,13 @@ WhatsApp
 <?php
 }
 ?>
+<a href="request-blood.php?id=<?php echo $row['id']; ?>"
+class="btn btn-danger">
+Request Blood
+</a>
 
 </section>
+
 
 <?php include 'components/footer.php'; ?>
 

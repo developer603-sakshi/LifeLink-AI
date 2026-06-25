@@ -1,3 +1,7 @@
+<?php
+$page = "sos";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

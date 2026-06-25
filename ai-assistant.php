@@ -1,3 +1,7 @@
+<?php
+$page = "ai";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

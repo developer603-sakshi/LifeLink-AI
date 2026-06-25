@@ -1,3 +1,4 @@
+<?php $page = "donor"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,6 +106,49 @@ required>
 
 </div>
 
+<div class="mb-3">
+<label class="form-label">Age</label>
+<input type="number"
+name="age"
+class="form-control"
+required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Weight (kg)</label>
+<input type="number"
+name="weight"
+class="form-control"
+required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Last Blood Donation Date</label>
+<input type="date"
+name="last_donation_date"
+class="form-control"
+required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Availability</label>
+
+<select
+name="availability"
+class="form-select">
+
+<option value="Available">
+Available
+</option>
+
+<option value="Busy">
+Busy
+</option>
+
+</select>
+
+</div>
+
 <div class="row">
 
 <div class="col-md-6 mb-3">
@@ -175,22 +219,7 @@ class="form-control">
 
 </div>
 
-<div class="col-md-6 mb-3">
 
-<label>Available Now?</label>
-
-<select
-name="available"
-class="form-select">
-
-<option value="Yes">Yes</option>
-<option value="No">No</option>
-
-</select>
-
-</div>
-
-</div>
 
 <button
 type="submit"
